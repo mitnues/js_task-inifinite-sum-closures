@@ -6,21 +6,17 @@
 function makeInfinityAdder() {
   let sum = 0;
 
-  const adder = (num) => {
+  const makeAdder = (num) => {
     if (num === undefined) {
       const result = sum;
       sum = 0;
       return result;
     }
 
-    if (typeof num !== 'number') {
-      throw new TypeError('Argument must be a number');
-    }
-
     sum += num;
-    return adder;
+    return makeAdder;
   }
-  return adder;
+  return makeAdder;
 }
 
 module.exports = makeInfinityAdder;
